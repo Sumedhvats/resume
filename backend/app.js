@@ -25,7 +25,7 @@ const limiter = rateLimit({
 app.use(helmet());
 app.use(limiter);
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'https://resume-dl1w.onrender.com',
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
