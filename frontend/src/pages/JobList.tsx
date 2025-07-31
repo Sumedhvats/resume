@@ -233,7 +233,6 @@ export const JobList = () => {
                 ))}
               </SelectContent>
             </Select>
-
             <Input
               placeholder="Location"
               value={filters.location}

@@ -45,11 +45,7 @@ export const ResumeList = () => {
       setResumes(data.data);
       setPagination(data.pagination);
     } catch (error) {
-      toast({
-        title: 'Error loading resumes',
-        description: error instanceof Error ? error.message : 'Failed to load resumes',
-        variant: 'destructive',
-      });
+     
     } finally {
       setLoading(false);
     }

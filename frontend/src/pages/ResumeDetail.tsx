@@ -42,11 +42,7 @@ export const ResumeDetail = () => {
       const resumeData = await api.getResume(resumeId);
       setResume(resumeData);
     } catch (error) {
-      toast({
-        title: 'Error loading resume',
-        description: error instanceof Error ? error.message : 'Failed to load resume',
-        variant: 'destructive',
-      });
+     
       navigate('/resumes');
     } finally {
       setLoading(false);
