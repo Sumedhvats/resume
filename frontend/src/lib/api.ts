@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://resume-dl1w.onrender.com/api';
 
 export interface Resume {
   _id: string;

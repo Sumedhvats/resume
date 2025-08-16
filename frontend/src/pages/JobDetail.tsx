@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Building, MapPin, DollarSign, ArrowLeft, ExternalLink } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
-const BACKEND_URL="http://localhost:5000/api"
+const BACKEND_URL="https://resume-dl1w.onrender.com"
 export function JobDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
