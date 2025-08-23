@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
-const BACKEND_URL="https://resume-dl1w.onrender.com"
+const BACKEND_URL="https://resume-dl1w.onrender.com/api"
 const jobTypeOptions = [
   { value: "full-time", label: "Full-time" },
   { value: "part-time", label: "Part-time" },
