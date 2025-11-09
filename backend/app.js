@@ -24,7 +24,16 @@ const limiter = rateLimit({
 // Middlewares
 app.use(helmet());
 app.use(limiter);
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:8081",     // your local frontend
+    "https://resume-dl1w.onrender.com", // allow backend self-calls (optional)
+    "https://your-frontend-domain.vercel.app", // if deployed frontend (optional)
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
