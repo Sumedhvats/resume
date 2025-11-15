@@ -36,15 +36,26 @@ export function JobDetail() {
     loadJob();
   }, [id]);
 
-  const formatSalary = (salaryRange) => {
-    if (!salaryRange) return null;
-    const formatAmount = (amount) => {
-      if (amount >= 1000000) return `${(amount / 1000000).toFixed(1)}M`;
-      if (amount >= 1000) return `${Math.round(amount / 1000)}k`;
-      return amount.toString();
-    };
-    return `$${formatAmount(salaryRange.min)} - $${formatAmount(salaryRange.max)} ${salaryRange.currency || "USD"}`;
+
+const formatSalary = (salaryRange?: { min?: number; max?: number }) => {
+  if (!salaryRange || (salaryRange.min == null && salaryRange.max == null)) {
+    return "Not specified";
+  }
+  const formatAmount = (amount?: number) => {
+    if (amount == null || isNaN(amount)) return "N/A";
+    if (amount >= 1_000_000) return `${(amount / 1_000_000).toFixed(1)}M`;
+    if (amount >= 1_000) return `${Math.round(amount / 1_000)}k`;
+    return amount.toString();
   };
+
+  const min = formatAmount(salaryRange.min);
+  const max = formatAmount(salaryRange.max);
+
+  if (salaryRange.min != null && salaryRange.max != null) {
+    return `$${min} - $${max}`;
+  }
+  return salaryRange.min != null ? `$${min}` : `$${max}`;
+};
 
   if (loading) {
     return (
